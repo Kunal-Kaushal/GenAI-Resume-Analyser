@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Resume Analyzer Design System
+Dark theme with tech-forward aesthetic. All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark theme base colors */
+    --background: 230 35% 7%;  /* Deep navy #1a1a2e */
+    --foreground: 0 0% 95%;    /* Light grey text */
+
+    --card: 230 25% 12%;       /* Slightly lighter than background */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 230 25% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Electric blue accent */
+    --primary: 197 100% 50%;   /* Electric blue #00a8ff */
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft purple alternative */
+    --secondary: 254 69% 76%;  /* Soft purple #9c88ff */
+    --secondary-foreground: 230 35% 7%;
+
+    --muted: 230 20% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 197 100% 50%;    /* Electric blue */
+    --accent-foreground: 0 0% 100%;
+
+    /* Score colors */
+    --destructive: 349 100% 64%;  /* Red #ff4757 */
+    --destructive-foreground: 0 0% 100%;
+    
+    --warning: 37 100% 51%;       /* Yellow #ffa502 */
+    --warning-foreground: 230 35% 7%;
+    
+    --success: 142 84% 57%;       /* Green #2ed573 */
+    --success-foreground: 0 0% 100%;
+
+    --border: 230 20% 25%;
+    --input: 230 20% 18%;
+    --ring: 197 100% 50%;
+
+    --radius: 1rem;
+
+    /* Custom gradients and effects */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(254 69% 76%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(230 25% 15%) 100%);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 20px 40px -15px hsl(0 0% 0% / 0.3);
+    
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* File upload dropzone */
+  .dropzone {
+    @apply border-2 border-dashed border-muted-foreground/30 rounded-xl p-8 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card/50 cursor-pointer;
+  }
+  
+  .dropzone-active {
+    @apply border-primary bg-primary/5 shadow-[0_0_0_1px] shadow-primary/20;
+  }
+
+  /* Loading animations */
+  .pulse-dots span {
+    @apply inline-block w-2 h-2 bg-primary rounded-full mx-1 animate-pulse;
+    animation-delay: calc(var(--i) * 0.2s);
+  }
+
+  /* Radial progress */
+  .radial-progress {
+    @apply relative w-32 h-32;
+  }
+  
+  .radial-progress svg {
+    @apply transform -rotate-90;
+  }
+  
+  .radial-progress .progress-ring {
+    transition: stroke-dashoffset var(--transition-smooth);
+  }
+
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

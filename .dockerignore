@@ -1,0 +1,72 @@
+# ============================================================================
+
+# DOCKERIGNORE - Files to exclude from Docker build context
+
+# ============================================================================
+
+# This prevents unnecessary files from being sent to Docker build context,
+
+# reducing build time and image size.
+
+# Development environment
+
+.env
+.env.local
+.env.example
+myvenv/
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+
+# Frontend files (not needed for API-only deployment)
+
+Front-end/
+simple-frontend/
+simple-react/
+
+# Version control
+
+.git/
+.gitignore
+
+# Documentation
+
+README.md
+\*.md
+
+# IDE files
+
+.vscode/
+.idea/
+_.swp
+_.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Logs
+
+\*.log
+logs/
+
+# Test files
+
+test/
+tests/
+*\_test.py
+*test\*.py
+
+# Build artifacts
+
+dist/
+build/
+\*.egg-info/
+
+# Temporary files
+
+tmp/
+temp/
+node_modules
